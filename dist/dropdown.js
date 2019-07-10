@@ -156,7 +156,8 @@ var Dropdown = function (_Component) {
             var _props2 = this.props,
                 children = _props2.children,
                 isLoading = _props2.isLoading,
-                disabled = _props2.disabled;
+                disabled = _props2.disabled,
+                labelledBy = _props2.labelledBy;
 
 
             var expandedHeaderStyle = expanded ? styles.dropdownHeaderExpanded : undefined;
@@ -175,6 +176,7 @@ var Dropdown = function (_Component) {
                     className: 'dropdown',
                     tabIndex: '0',
                     role: 'combobox',
+                    'aria-labelledby': labelledBy,
                     'aria-expanded': expanded,
                     'aria-readonly': 'true',
                     'aria-disabled': disabled,
@@ -214,13 +216,12 @@ var Dropdown = function (_Component) {
                         isLoading && _react2.default.createElement(_loadingIndicator2.default, null)
                     ),
                     _react2.default.createElement(
-                        'span',
+                        'i',
                         {
-                            className: 'dropdown-heading-dropdown-arrow',
+                            className: 'dropdown icon',
                             style: styles.dropdownArrow
                         },
-                        _react2.default.createElement('span', { style: _extends({}, arrowStyle, focusedArrowStyle)
-                        })
+                   
                     )
                 ),
                 expanded && this.renderPanel()
